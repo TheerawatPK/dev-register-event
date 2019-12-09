@@ -1,0 +1,21 @@
+<p>user works!</p>
+<ul>
+    <li>name : {{name}}</li>
+    <li>Age: {{age}}</li>
+    <li>email: {{email}}</li>
+    <li>Address: {{address.street}}, {{address.province}}, {{address.city}}</li>
+    <li>Skills: 
+        <ul>
+            <li *ngFor="let skills of skills;let i = index">{{i+1}}.{{skills}}</li>
+        </ul>
+    </li>
+</ul>
+
+<h1>add Skill</h1>
+    <div>
+        <label for="skill">skill</label>
+        <input type="text" #newskill (keyup.enter)="addSkill(newskill.value)"
+        (blur)="addSkill(newskill.value); newskill.value=''">
+        
+        <button (click)="addSkill(newskill.value)">add</button>
+    </div>
